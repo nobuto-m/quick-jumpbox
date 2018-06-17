@@ -1,0 +1,7 @@
+Host remote-box
+    # Hostname X.Y.X.Z
+    # Port XYZ
+    User tokyo-jumpbox
+
+    # reverse SSH
+    RemoteForward 20022 127.0.0.1:22

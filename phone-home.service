@@ -1,0 +1,20 @@
+[Unit]
+Description=Phone home with SSH
+
+ConditionPathExists=%h/.ssh/config
+After=network-online.target
+
+[Service]
+Environment=REMOTE=remote-box
+
+ExecStart=/usr/bin/ssh -N \
+    -oExitOnForwardFailure=yes \
+    -oServerAliveInterval=60 \
+    ${REMOTE}
+
+Type=simple
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=default.target
