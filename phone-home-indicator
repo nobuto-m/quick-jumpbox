@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import piglow
+import subprocess
+
+brightness = 1
+piglow.clear_on_exit = False
+piglow.clear()
+
+cmd = ["systemctl", "is-active", "--user", "-q", "phone-home"]
+try:
+    subprocess.check_call(cmd)
+    piglow.green(brightness)
+except subprocess.CalledProcessError:
+    piglow.orange(brightness)
+
+piglow.show()

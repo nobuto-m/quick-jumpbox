@@ -50,3 +50,28 @@ Enable Phone home service.
 Enable user instance on boot.
 
     $ loginctl enable-linger "$USER"
+
+Install piglow module.
+
+    $ sudo apt install python3-pip python3-smbus
+    $ sudo -H pip3 install piglow==1.2.4
+
+Add the user to i2c group.
+
+    $ sudo adduser "$USER" i2c
+
+Enable Phone home indicator service and timer.
+
+    $ mkdir -p ~/.local/bin/
+    $ cp -v -i phone-home-indicator ~/.local/bin/
+    $ chmod +x ~/.local/bin/phone-home-indicator
+
+    $ cp -v -i phone-home-indicator.service ~/.config/systemd/user/
+    $ cp -v -i phone-home-indicator.timer ~/.config/systemd/user/
+
+    $ systemctl --user enable phone-home-indicator.service
+    $ systemctl --user enable phone-home-indicator.timer
+
+Reboot.
+
+    $ sudo reboot
