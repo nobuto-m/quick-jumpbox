@@ -26,6 +26,11 @@ Copy the key to the remote.
     [remote] $ cat ~/.ssh/authorized_keys
     command="",restrict,port-forwarding ssh-rsa ...
 
+Clone the repository.
+
+    $ git clone https://github.com/nobuto-m/tokyo-jumpbox.git
+    $ cd tokyo-jumpbox/
+
 Prepare SSH client configuration.
 
     $ cp -v -i ssh_config ~/.ssh/config
