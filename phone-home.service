@@ -5,7 +5,7 @@ ConditionPathExists=%h/.ssh/config
 [Service]
 Type=simple
 Restart=always
-RestartSec=30
+RestartSec=60
 
 Environment=REMOTE=remote-box
 
