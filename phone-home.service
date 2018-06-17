@@ -7,7 +7,7 @@ After=network-online.target
 [Service]
 Environment=REMOTE=remote-box
 
-ExecStart=/usr/bin/ssh -N \
+ExecStart=/usr/bin/ssh -v -NT \
     -oExitOnForwardFailure=yes \
     -oServerAliveInterval=60 \
     ${REMOTE}
