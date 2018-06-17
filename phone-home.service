@@ -1,20 +1,20 @@
 [Unit]
 Description=Phone home with SSH
-
 ConditionPathExists=%h/.ssh/config
-After=network-online.target
 
 [Service]
-Environment=REMOTE=remote-box
-
-ExecStart=/usr/bin/ssh -v -NT \
-    -oExitOnForwardFailure=yes \
-    -oServerAliveInterval=60 \
-    ${REMOTE}
-
 Type=simple
 Restart=always
 RestartSec=30
+
+Environment=REMOTE=remote-box
+
+ExecStartPre=/bin/sh -c 'networkctl status | grep -q "State: routable"'
+ExecStart=/usr/bin/ssh -v -NT \
+    -oPreferredAuthentications=publickey \
+    -oExitOnForwardFailure=yes \
+    -oServerAliveInterval=60 \
+    ${REMOTE}
 
 [Install]
 WantedBy=default.target
