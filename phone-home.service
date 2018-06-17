@@ -3,14 +3,14 @@ Description=Phone home with SSH
 ConditionPathExists=%h/.ssh/config
 
 [Service]
-Type=simple
+Type=forking
 Restart=always
 RestartSec=60
 
 Environment=REMOTE=remote-box
 
 ExecStartPre=/bin/sh -c 'networkctl status | grep -q "State: routable"'
-ExecStart=/usr/bin/ssh -v -NT \
+ExecStart=/usr/bin/ssh -v -f -NT \
     -oPreferredAuthentications=publickey \
     -oExitOnForwardFailure=yes \
     -oServerAliveInterval=60 \
