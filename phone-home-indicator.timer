@@ -2,7 +2,7 @@
 Description=Trigger Phone home indicator
 
 [Timer]
-OnUnitInactiveSec=30
+OnUnitInactiveSec=300
 
 [Install]
 WantedBy=timers.target
