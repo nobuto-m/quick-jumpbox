@@ -17,6 +17,10 @@ Apply security updates.
     $ sudo apt update
     $ sudo unattended-upgrade -d
 
+Install packages.
+
+    $ sudo apt install prometheus-node-exporter
+
 Generate SSH key.
 
     $ ssh-keygen
