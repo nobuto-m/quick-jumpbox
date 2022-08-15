@@ -21,6 +21,10 @@ Install packages.
 
     $ sudo apt install prometheus-node-exporter
 
+Install and setup tailscale.
+
+ - https://tailscale.com/download/
+
 Generate SSH key.
 
     $ ssh-keygen -t ed25519
