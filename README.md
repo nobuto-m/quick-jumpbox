@@ -1,6 +1,6 @@
 Prepare boot SD card.
 
-    $ xzcat ubuntu-18.04-preinstalled-server-armhf+raspi2.img.xz \
+    $ xzcat ubuntu-22.04.1-preinstalled-server-armhf+raspi.img.xz \
         | sudo dd bs=4M of=/dev/mmcblk0 oflag=sync status=progress
 
 Boot, SSH and update hostname.
@@ -23,7 +23,7 @@ Install packages.
 
 Generate SSH key.
 
-    $ ssh-keygen
+    $ ssh-keygen -t ed25519
 
 Copy the key to the remote.
 
@@ -32,8 +32,8 @@ Copy the key to the remote.
 
 Clone the repository.
 
-    $ git clone https://github.com/nobuto-m/tokyo-jumpbox.git
-    $ cd tokyo-jumpbox/
+    $ git clone https://github.com/nobuto-m/quick-jumpbox.git
+    $ cd quick-jumpbox/
 
 Prepare SSH client configuration.
 
