@@ -61,8 +61,8 @@ Enable user instance on boot.
 
 Install piglow module.
 
-    $ sudo apt install python3-pip python3-smbus
-    $ sudo -H pip3 install piglow==1.2.4
+    $ sudo apt install python3-pip python3-smbus python3-rpi.gpio
+    $ sudo -H pip3 install piglow==1.2.5
 
 Add the user to i2c group.
 
