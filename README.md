@@ -22,6 +22,10 @@ Install:
 Download and intall:
 - Tailscale https://tailscale.com/download/
 
+TODO:
+- extend the disk space https://bugs.launchpad.net/subiquity/+bug/1893276
+- set NOPASSWD: `echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-ubuntu`
+
 
 Prepare boot SD card.
 
