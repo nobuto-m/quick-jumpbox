@@ -1,4 +1,5 @@
-Make sure BIOS has `AC Power Recovery: On`.
+Make sure BIOS has `Restore on AC Power Loss: Power On` to cooperate
+with a smart plug or a power outage.
 
 1. get [Ubuntu server latest LTS image](https://ubuntu.com/download/server)
 
@@ -8,6 +9,19 @@ Make sure BIOS has `AC Power Recovery: On`.
    [macOS](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos))
 
 1. boot up with the USB stick
+
+
+Press Enter to almost all questions or use an automated way.
+
+sudo hostnamectl hostname "<HOSTNAME>" and edit `/etc/hosts`.
+
+Install:
+- avahi-daemon
+- prometheus-node-exporter
+
+Download and intall:
+- Tailscale https://tailscale.com/download/
+
 
 Prepare boot SD card.
 
