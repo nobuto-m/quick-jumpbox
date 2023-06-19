@@ -1,3 +1,14 @@
+Make sure BIOS has `AC Power Recovery: On`.
+
+1. get [Ubuntu server latest LTS image](https://ubuntu.com/download/server)
+
+1. create a USB startup disk
+   ([Ubuntu](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu),
+   [Windows](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows),
+   [macOS](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos))
+
+1. boot up with the USB stick
+
 Prepare boot SD card.
 
     $ xzcat ubuntu-22.04.1-preinstalled-server-armhf+raspi.img.xz \
