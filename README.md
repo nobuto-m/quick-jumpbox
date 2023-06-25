@@ -10,7 +10,7 @@ with a smart plug or a power outage.
 
 1. boot up with the USB stick
 
-https://github.com/nobuto-m/quick-jumpbox/blob/nuc/user-data
+[user-data](user-data)
 
 Press Enter to almost all questions or use an automated way.
 
