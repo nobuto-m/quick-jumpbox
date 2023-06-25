@@ -3,10 +3,11 @@ autoinstall:
   version: 1
   identity:
     hostname: ubuntu-server
-    password: "$6$exDY1mhS4KUYCE/2$zmn9ToZwTKLhCw.b4/b.ZRTIZM30JZ4QrOQ2aOXJ8yk96xpcCof0kxKwuX1kqLG/ygbJ1f8wxED22bTL4F46P0"
     username: ubuntu
+    # password=ubuntu
+    password: "$6$exDY1mhS4KUYCE/2$zmn9ToZwTKLhCw.b4/b.ZRTIZM30JZ4QrOQ2aOXJ8yk96xpcCof0kxKwuX1kqLG/ygbJ1f8wxED22bTL4F46P0"
   ssh:
-    install-server: yes  # LP: #1974483
+    install-server: yes  # https://launchpad.net/bugs/1974483
     allow-pw: no
   apt:
     preserve_sources_list: true
