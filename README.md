@@ -1,8 +1,9 @@
 The steps below cover how to create a Linux based jumpbox briefly.
 ## Installation
 
-1. Make sure BIOS configuration as `Restore on AC Power Loss: Power On` is set if the item exists, in order to cooperate
-   with a smart plug or a power outage to be always on.
+1. Make sure BIOS configuration as `Restore on AC Power Loss: Power On`
+   is set if the item exists, in order to cooperate with a smart plug or
+   a power outage to be always on.
 
 1. On a separate machine, get [the Ubuntu server image with the latest LTS version](https://ubuntu.com/download/server)
 
@@ -19,7 +20,7 @@ The steps below cover how to create a Linux based jumpbox briefly.
       ![](screenshots/grub.png)
    1. Add the `autoinstall` config after `vmlinuz` to use the [user-data](user-data) (assuming DHCP and internet connectivity)  
       ![](screenshots/grub_append_github.png)
-   2. Press `Ctrl-x` or `F10`
+   2. Press `Ctrl-x` or `F10` to boot
 
 ## Post installation
 
@@ -56,10 +57,25 @@ Useful packages to install.
 - `avahi-daemon` (for home use to resolve `HOSTNAME.local`)
 - `prometheus-node-exporter` (to be monitored by other machines)
 
-TODO:
-- extend the disk space https://launchpad.net/bugs/1893276
-- set NOPASSWD: `echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-ubuntu`
+
+Extend the root volume if necessary since [the installer doesn't use the whole space if a drive is bigger than a certain amount](https://launchpad.net/bugs/1893276).
+```bash
+sudo lvextend -l +90%FREE --resizefs ubuntu-vg/ubuntu-lv
+```
+
+Enable NOPASSWD sudo and disable login password to be closer to cloud images.
+```bash
+sudoers=$(mktemp)
+echo "$USER ALL=(ALL) NOPASSWD:ALL" | tee "$sudoers"
+
+if visudo --check "$sudoers"; then
+    sudo install -m 0440 "$sudoers" /etc/sudoers.d/90-init-users
+    sudo passwd --lock $USER
+fi
+```
 
 ## References
 
 - https://ubuntu.com/server/docs/install/autoinstall
+- https://sshuttle.readthedocs.io/
+- https://tailscale.com/kb/
