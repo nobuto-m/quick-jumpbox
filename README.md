@@ -57,3 +57,7 @@ Useful packages to install.
 TODO:
 - extend the disk space https://launchpad.net/bugs/1893276
 - set NOPASSWD: `echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-ubuntu`
+
+## References
+
+- https://ubuntu.com/server/docs/install/autoinstall
