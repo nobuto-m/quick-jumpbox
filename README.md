@@ -18,7 +18,7 @@ The steps below cover how to create a Linux based jumpbox briefly.
    1. Press `e` on `Try or Install Ubuntu Server`  
       ![](screenshots/grub.png)
    1. Add the `autoinstall` config after `vmlinuz` to use the [user-data](user-data) (assuming DHCP and internet connectivity)  
-      ![](screenshots/grub_append.png)
+      ![](screenshots/grub_append_github.png)
    2. Press `Ctrl-x` or `F10`
 
 ## Post installation
@@ -46,7 +46,9 @@ Any VPN implementation that can be run on Linux is fine, and here are two quick 
 1. tailscale  
    https://tailscale.com/download/linux  
      
-   `sudo tailscale up --advertise-exit-node`
+   `sudo tailscale up --advertise-exit-node`  
+   or  
+   `sudo tailscale up --advertise-routes 192.168.99.0/24`
 
 ## Misc
 
