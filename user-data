@@ -10,6 +10,6 @@ autoinstall:
     install-server: yes  # https://launchpad.net/bugs/1974483
     allow-pw: no
   apt:
-    preserve_sources_list: true
+    geoip: false
   kernel:
     flavor: generic  # or hwe
