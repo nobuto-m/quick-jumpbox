@@ -51,14 +51,14 @@ Any VPN implementation that can be run on Linux is fine, and here are two quick 
    or  
    `sudo tailscale up --advertise-routes 192.168.99.0/24`
 
-## Misc
+## Misc - only if necessary
 
 Useful packages to install.
 - `avahi-daemon` (for home use to resolve `HOSTNAME.local`)
 - `prometheus-node-exporter` (to be monitored by other machines)
 
 
-Extend the root volume if necessary since [the installer doesn't use the whole space if a drive is bigger than a certain amount](https://launchpad.net/bugs/1893276).
+Extend the root volume since [the installer doesn't use the whole space if a drive is bigger than a certain amount](https://launchpad.net/bugs/1893276).
 ```bash
 sudo lvextend -l +90%FREE --resizefs ubuntu-vg/ubuntu-lv
 ```
@@ -76,6 +76,7 @@ fi
 
 ## References
 
+- https://www.servethehome.com/keeping-servers-bios-setup-availability/
 - https://ubuntu.com/server/docs/install/autoinstall
 - https://sshuttle.readthedocs.io/
 - https://tailscale.com/kb/
