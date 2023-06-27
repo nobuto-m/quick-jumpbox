@@ -41,9 +41,9 @@ Any VPN implementation that can be run on Linux is fine, and here are two quick 
 1. sshuttle  
    https://sshuttle.readthedocs.io/en/stable/usage.html  
      
-   `sshuttle -r "ubuntu@<JUMPBOX_IP_ADDRESS>" -N`  
+   `sshuttle -r "ubuntu@<JUMPBOX_IP_ADDRESS>" 0/0`  
    or  
-   `sshuttle -r "ubuntu@<JUMPBOX_IP_ADDRESS>" 0/0`
+   `sshuttle -r "ubuntu@<JUMPBOX_IP_ADDRESS>" -N`
 1. tailscale  
    https://tailscale.com/download/linux  
      
