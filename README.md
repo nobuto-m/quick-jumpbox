@@ -99,6 +99,17 @@ microk8s enable hostpath-storage
 microk8s enable metallb:192.168.12.201-192.168.12.230
 ```
 
+### n8n
+
+Install.
+
+```bash
+git clone https://github.com/nobuto-m/n8n-kubernetes-hosting.git -b tokyo-jumpbox
+
+microk8s kubectl apply -f n8n-kubernetes-hosting/namespace.yaml
+microk8s kubectl apply -f n8n-kubernetes-hosting/
+```
+
 ## References
 
 - https://www.servethehome.com/keeping-servers-bios-setup-availability/
