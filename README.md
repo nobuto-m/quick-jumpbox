@@ -87,6 +87,7 @@ Logout from the session and login. Then, install MicroK8s.
 
 ```bash
 sudo snap install microk8s --classic
+sudo snap install kubectl  --classic
 ```
 
 Wait for it to be available and make sure some base add-ons are enabled.
@@ -94,9 +95,12 @@ Wait for it to be available and make sure some base add-ons are enabled.
 ```bash
 microk8s status --wait-ready
 
+mkdir -p ~/.kube/
+microk8s config > ~/.kube/config
+
 microk8s enable dns
 microk8s enable hostpath-storage
-microk8s enable metallb:192.168.12.201-192.168.12.230
+microk8s enable metallb:192.168.18.201-192.168.18.230
 ```
 
 ### n8n
@@ -106,8 +110,8 @@ Install.
 ```bash
 git clone https://github.com/nobuto-m/n8n-kubernetes-hosting.git -b tokyo-jumpbox
 
-microk8s kubectl apply -f n8n-kubernetes-hosting/namespace.yaml
-microk8s kubectl apply -f n8n-kubernetes-hosting/
+kubectl apply -f n8n-kubernetes-hosting/namespace.yaml
+kubectl apply -f n8n-kubernetes-hosting/
 ```
 
 ## References
