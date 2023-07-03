@@ -74,6 +74,31 @@ if visudo --check "$sudoers"; then
 fi
 ```
 
+## MicroK8s - the lightweight Kubernetes
+
+Create a group, and add the current user to the group.
+
+```bash
+sudo addgroup --system microk8s
+sudo adduser $USER microk8s
+```
+
+Logout from the session and login. Then, install MicroK8s.
+
+```bash
+sudo snap install microk8s --classic
+```
+
+Wait for it to be available and make sure some base add-ons are enabled.
+
+```bash
+microk8s status --wait-ready
+
+microk8s enable dns
+microk8s enable hostpath-storage
+microk8s enable metallb:192.168.12.201-192.168.12.230
+```
+
 ## References
 
 - https://www.servethehome.com/keeping-servers-bios-setup-availability/
