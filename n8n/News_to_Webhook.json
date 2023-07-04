@@ -1,0 +1,148 @@
+{
+  "name": "News to MM",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 47
+            }
+          ]
+        }
+      },
+      "id": "4621012e-15c5-44cd-b583-d5c02ae7d9b7",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $('News').item.json[\"title\"] }}\\n{{ $('News').item.json[\"link\"] }}"
+            },
+            {
+              "name": "name",
+              "value": "n8n"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 10000
+            }
+          }
+        }
+      },
+      "id": "05351fb3-9d18-4ae0-93e3-5c7fd457c528",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        820,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "dateTime": [
+            {
+              "value1": "={{ $json.isoDate }}",
+              "value2": "={{$now.minus({minutes:47}).toISO()}}"
+            }
+          ],
+          "string": [
+            {
+              "value1": "={{ $json.title }}",
+              "operation": "notContains",
+              "value2": "Some spam titles"
+            }
+          ]
+        }
+      },
+      "id": "b9b08baa-cdd2-4425-978f-cb2341773b26",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        620,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": ""
+      },
+      "id": "03f900c8-476c-4e7e-86c8-c787072b7427",
+      "name": "News",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        400,
+        300
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "News": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "timezone": "Etc/GMT",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "1ba69e71-896a-48eb-9fa5-444b453ace14",
+  "id": "gVGNaGzNCGheVGvr",
+  "meta": {
+    "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
+  },
+  "tags": []
+}
