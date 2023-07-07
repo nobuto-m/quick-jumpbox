@@ -33,7 +33,7 @@
               "value": "={{ $json.link }}"
             },
             {
-              "name": "name",
+              "name": "username",
               "value": "n8n"
             }
           ]
