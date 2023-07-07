@@ -1,5 +1,5 @@
 {
-  "name": "Feeds to MM",
+  "name": "Canonical feeds to MM [53]",
   "nodes": [
     {
       "parameters": {
@@ -18,7 +18,7 @@
       "typeVersion": 1.1,
       "position": [
         180,
-        300
+        280
       ]
     },
     {
@@ -30,7 +30,7 @@
           "parameters": [
             {
               "name": "text",
-              "value": "={{ $('Feed 1').item.json.link }}"
+              "value": "={{ $json.link }}"
             },
             {
               "name": "name",
@@ -42,7 +42,7 @@
           "batching": {
             "batch": {
               "batchSize": 1,
-              "batchInterval": 10000
+              "batchInterval": 3000
             }
           }
         }
@@ -78,39 +78,42 @@
     },
     {
       "parameters": {
-        "url": ""
+        "batchSize": 1,
+        "options": {}
       },
-      "id": "01f34cc2-64e1-42a8-871e-4ad4808795b3",
-      "name": "Feed 1",
-      "type": "n8n-nodes-base.rssFeedRead",
-      "typeVersion": 1,
+      "id": "c61cc2ca-fa28-478e-9664-8389db52fb3a",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
       "position": [
-        400,
-        300
+        600,
+        180
       ]
     },
     {
       "parameters": {
-        "url": ""
+        "jsCode": "return [\n  {\n    json: {\n      url: 'https://canonical.com/blog/feed',\n      }\n  },\n  {\n    json: {\n      url: 'https://ubuntu.com/blog/feed',\n      }\n  },\n  {\n    json: {\n      url: 'https://jp.ubuntu.com/blog/feed',\n    }\n  }\n];"
       },
-      "id": "b0cb0b64-a3ba-4324-a922-b42ccf950338",
-      "name": "Feed 2",
-      "type": "n8n-nodes-base.rssFeedRead",
+      "id": "15a5407c-b089-4d66-b907-e4cb6af7c83e",
+      "name": "Feeds",
+      "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        400,
-        460
+        380,
+        280
       ]
     },
     {
-      "parameters": {},
-      "id": "cfc38d9f-e08a-4608-960d-af727ef80cda",
-      "name": "Merge",
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 2.1,
+      "parameters": {
+        "url": "={{ $json.url }}"
+      },
+      "id": "419b8d4f-cb43-4f13-81dd-d5d3dc92294a",
+      "name": "RSS Read",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
       "position": [
-        600,
-        380
+        760,
+        0
       ]
     }
   ],
@@ -120,12 +123,7 @@
       "main": [
         [
           {
-            "node": "Feed 1",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Feed 2",
+            "node": "Feeds",
             "type": "main",
             "index": 0
           }
@@ -143,33 +141,40 @@
         ]
       ]
     },
-    "Feed 1": {
+    "Feeds": {
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Split In Batches",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Feed 2": {
+    "Split In Batches": {
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "RSS Read",
             "type": "main",
-            "index": 1
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
     },
-    "Merge": {
+    "RSS Read": {
       "main": [
         [
           {
-            "node": "Filter",
+            "node": "Split In Batches",
             "type": "main",
             "index": 0
           }
@@ -183,7 +188,7 @@
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "35d352e9-f3cd-44c8-8811-f9c35bb439b8",
+  "versionId": "dfca4f66-66ab-4770-8560-d035de3095c1",
   "id": "nwM4um6JChHhUuMI",
   "meta": {
     "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
