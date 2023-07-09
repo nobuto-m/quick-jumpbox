@@ -1,0 +1,537 @@
+{
+  "name": "Linux news to MM [89]",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 89
+            }
+          ]
+        }
+      },
+      "id": "f902a3df-0b61-4e43-88f9-d7aaf69b1284",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json[\"link\"] }}\n**{{ $json[\"title\"] }}**\n> {{ $json.contentSnippet }}"
+            },
+            {
+              "name": "username",
+              "value": "n8n"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 3000
+            }
+          }
+        }
+      },
+      "id": "1be20bcc-b05f-4073-9c3e-5ebf48e11ed0",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1560,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "dateTime": [
+            {
+              "value1": "={{ $json.isoDate }}",
+              "value2": "={{\n  DateTime.fromISO($(\"Schedule Trigger\").item.json.timestamp)\n    .minus({\n      minutes:\n        $(\"Schedule Trigger\").params[\"rule\"][\"interval\"][0][\n          \"minutesInterval\"\n        ],\n    })\n    .toISO();\n}}"
+            }
+          ]
+        }
+      },
+      "id": "6b2001be-f3c7-47b2-b79d-a6e44a9ceece",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "7064ed9f-c0c0-49e6-b23c-8bc360139620",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        820,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}"
+      },
+      "id": "089d3ca7-c07c-4f8c-b7c0-8387edc0b60a",
+      "name": "RSS Read",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        980,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { url: \"https://www.omgubuntu.co.uk/feed\" } },\n];"
+      },
+      "id": "52423220-19bc-4345-83dc-d74c1775cdbe",
+      "name": "Ubuntu news",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        480,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { url: \"https://www.omglinux.com/feed\" } },\n  { json: { url: \"https://www.linux.com/feed/\" } },\n  { json: { url: \"https://www.phoronix.com/rss.php\" } },\n];"
+      },
+      "id": "5b3bc7c9-7cfe-446c-a909-acf844f74f00",
+      "name": "Linux news",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        480,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n];"
+      },
+      "id": "3ceda858-259c-4faa-b145-607e38fc331f",
+      "name": "News - en",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        480,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { url: \"http://feeds.japan.zdnet.com/rss/zdnet/all.rdf\" } },\n  { json: { url: \"http://feeds.japan.cnet.com/rss/cnet/all.rdf\" } },\n  { json: { url: \"https://cloud.watch.impress.co.jp/data/rss/1.0/clw/feed.rdf\" } },\n  { json: { url: \"https://news.yahoo.co.jp/rss/topics/it.xml\" } },\n  { json: { url: \"https://www.techno-edge.net/rss20/index.rdf\" } },\n  { json: { url: \"https://rss.itmedia.co.jp/rss/2.0/news_bursts.xml\" } },\n  { json: { url: \"https://weekly.ascii.jp/rss.xml\" } },\n  { json: { url: \"https://gihyo.jp/feed/rss2\" } },\n  { json: { url: \"https://thinkit.co.jp/rss.xml\" } },\n  { json: { url: \"https://codezine.jp/rss/new/20/index.xml\" } },\n  { json: { url: \"https://www.publickey1.jp/atom.xml\" } },\n];"
+      },
+      "id": "dc6d875b-82f8-4344-86f8-8f1236ad027e",
+      "name": "News - ja",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        480,
+        500
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d4c4602a-7353-4dc6-8ac2-c86843aac226",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b9f50cb1-9e02-4f96-afee-c44b7100b235",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "b33a1368-18cd-498a-b2e2-b2379f110275",
+      "name": "Split In Batches1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        820,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}"
+      },
+      "id": "4818f247-2111-4709-a288-16899eb8423a",
+      "name": "RSS Read1",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        980,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "dateTime": [
+            {
+              "value1": "={{ $json.isoDate }}",
+              "value2": "={{\n  DateTime.fromISO($(\"Schedule Trigger\").item.json.timestamp)\n    .minus({\n      minutes:\n        $(\"Schedule Trigger\").params[\"rule\"][\"interval\"][0][\n          \"minutesInterval\"\n        ],\n    })\n    .toISO();\n}}"
+            }
+          ]
+        }
+      },
+      "id": "c33206f3-b985-4df7-8b58-405fc9a3698f",
+      "name": "Filter1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c388e9de-b84f-4bea-a7eb-1ed2c9e2b057",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1400,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }} {{ $json.link }}",
+              "operation": "regex",
+              "value2": "/Canonical|Ubuntu/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/OpenStack|Kubernetes/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/Red Hat|IBM|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/SUSE/i"
+            }
+          ]
+        },
+        "combineConditions": "OR"
+      },
+      "id": "2b2a645b-f2be-486d-801d-d300348e2ca0",
+      "name": "Filter2",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "value2": "/Linux/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }} {{ $json.link }}",
+              "operation": "regex",
+              "value2": "/Canonical|Ubuntu/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/OpenStack|Kubernetes/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/Red Hat|IBM|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/SUSE/i"
+            }
+          ]
+        },
+        "combineConditions": "OR"
+      },
+      "id": "6bcb99fc-2b33-4abb-9907-e5df712fe186",
+      "name": "Filter incl. Linux",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        400
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Filter2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Ubuntu news",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Linux news",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "News - en",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "News - ja",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ubuntu news": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Linux news": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "News - en": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "News - ja": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches1": {
+      "main": [
+        [
+          {
+            "node": "RSS Read1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read1": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Filter incl. Linux",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter2": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter incl. Linux": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "timezone": "Etc/GMT",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "3bd6ee97-aceb-4069-a253-f26d27a38868",
+  "id": "XHqy8qPd9g5xPFCm",
+  "meta": {
+    "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
+  },
+  "tags": []
+}
