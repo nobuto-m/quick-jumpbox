@@ -51,6 +51,12 @@ Any VPN implementation that can be run on Linux is fine, and here are two quick 
    or  
    `sudo tailscale up --advertise-routes 192.168.99.0/24`
 
+In this particular case, execute:
+
+```bash
+sudo tailscale up --advertise-routes 192.168.18.0/24 --advertise-exit-node
+```
+
 ## Misc - only if necessary
 
 Useful packages to install.
