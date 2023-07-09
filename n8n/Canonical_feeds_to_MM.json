@@ -62,7 +62,7 @@
           "dateTime": [
             {
               "value1": "={{ $json.isoDate }}",
-              "value2": "={{$now.minus({minutes:$('Schedule Trigger').params[\"rule\"][\"interval\"][0][\"minutesInterval\"]}).toISO()}}"
+              "value2": "={{\n  DateTime.fromISO($(\"Schedule Trigger\").item.json.timestamp)\n    .minus({\n      minutes:\n        $(\"Schedule Trigger\").params[\"rule\"][\"interval\"][0][\n          \"minutesInterval\"\n        ],\n    })\n    .toISO();\n}}"
             }
           ]
         }
@@ -188,7 +188,7 @@
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "2b51bdc8-244c-4eb2-aded-93e231fe989c",
+  "versionId": "23f64cbf-4984-4006-be4e-14e77b1a82e4",
   "id": "nwM4um6JChHhUuMI",
   "meta": {
     "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
