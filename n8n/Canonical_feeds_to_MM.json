@@ -92,7 +92,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  {json: {url: 'https://canonical.com/blog/feed'}},\n  {json: {url: 'https://ubuntu.com/blog/feed'}},\n  {json: {url: 'https://jp.ubuntu.com/blog/feed'}},\n];"
+        "jsCode": "return [\n  { json: { url: \"https://canonical.com/blog/feed\" } },\n  { json: { url: \"https://ubuntu.com/blog/feed\" } },\n  { json: { url: \"https://jp.ubuntu.com/blog/feed\" } },\n];"
       },
       "id": "15a5407c-b089-4d66-b907-e4cb6af7c83e",
       "name": "Feeds",
@@ -188,7 +188,7 @@
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "23f64cbf-4984-4006-be4e-14e77b1a82e4",
+  "versionId": "3a076522-951b-49f3-8c02-9d743a132308",
   "id": "nwM4um6JChHhUuMI",
   "meta": {
     "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
