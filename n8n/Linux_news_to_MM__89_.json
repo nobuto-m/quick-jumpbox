@@ -131,7 +131,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://thenewstack.io/feed/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },  \n  { json: { url: \"https://feed.infoq.com/\" } },  \n];"
+        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://thenewstack.io/feed/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },\n];"
       },
       "id": "3ceda858-259c-4faa-b145-607e38fc331f",
       "name": "News - en",
@@ -258,6 +258,11 @@
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
               "value2": "/SUSE/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/layoff|レイオフ/i"
             }
           ]
         },
@@ -299,6 +304,11 @@
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
               "value2": "/SUSE/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/layoff|レイオフ/i"
             }
           ]
         },
@@ -528,7 +538,7 @@
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "bcbd7a56-67cd-44a6-bc8f-ad74f9b5916d",
+  "versionId": "6fa0cbaa-193a-4b70-8927-d97fc6077bec",
   "id": "XHqy8qPd9g5xPFCm",
   "meta": {
     "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
