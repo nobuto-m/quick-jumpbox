@@ -131,7 +131,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://thenewstack.io/feed/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },  \n];"
+        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://thenewstack.io/feed/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },  \n  { json: { url: \"https://feed.infoq.com/\" } },  \n];"
       },
       "id": "3ceda858-259c-4faa-b145-607e38fc331f",
       "name": "News - en",
@@ -528,7 +528,7 @@
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "6ac9fcf0-1ab4-40a9-8d3a-8fa05c8061fe",
+  "versionId": "bcbd7a56-67cd-44a6-bc8f-ad74f9b5916d",
   "id": "XHqy8qPd9g5xPFCm",
   "meta": {
     "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
