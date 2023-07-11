@@ -252,7 +252,7 @@
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/Red Hat|IBM|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
+              "value2": "/Red Hat|RHEL|IBM|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
             },
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
@@ -298,7 +298,7 @@
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/Red Hat|IBM|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
+              "value2": "/Red Hat|RHEL|IBM|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
             },
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
@@ -538,7 +538,7 @@
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "6fa0cbaa-193a-4b70-8927-d97fc6077bec",
+  "versionId": "0ad90dd6-088e-4d82-a159-e30de6acc595",
   "id": "XHqy8qPd9g5xPFCm",
   "meta": {
     "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
