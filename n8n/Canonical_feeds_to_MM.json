@@ -30,7 +30,7 @@
           "parameters": [
             {
               "name": "text",
-              "value": "={{ $json.link }}"
+              "value": "={{ $json[\"link\"] }}\n**{{ $json[\"title\"] }}**\n> {{ $json.contentSnippet }}"
             },
             {
               "name": "username",
@@ -188,7 +188,7 @@
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "3a076522-951b-49f3-8c02-9d743a132308",
+  "versionId": "4f488687-660f-419f-8615-31e61445b930",
   "id": "nwM4um6JChHhUuMI",
   "meta": {
     "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
