@@ -62,6 +62,7 @@ sudo tailscale up --advertise-routes 192.168.18.0/24 --advertise-exit-node
 Useful packages to install.
 - `avahi-daemon` (for home use to resolve `HOSTNAME.local`)
 - `prometheus-node-exporter` (to be monitored by other machines)
+- `etckeeper`
 
 
 Extend the root volume since [the installer doesn't use the whole space if a drive is bigger than a certain amount](https://launchpad.net/bugs/1893276).
