@@ -131,7 +131,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://thenewstack.io/feed/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },\n];"
+        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://thenewstack.io/feed/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },\n  { json: { url: \"https://www.infoworld.com/index.rss\" } },\n  { json: { url: \"https://feeds.bbci.co.uk/news/rss.xml\" } },\n];"
       },
       "id": "3ceda858-259c-4faa-b145-607e38fc331f",
       "name": "News - en",
