@@ -263,6 +263,11 @@
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
               "value2": "/layoff|レイオフ/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/vulnerability|vulnerabilities|脆弱性|CVE/i"
             }
           ]
         },
@@ -309,6 +314,11 @@
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
               "value2": "/layoff|レイオフ/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/vulnerability|vulnerabilities|脆弱性|CVE/i"
             }
           ]
         },
