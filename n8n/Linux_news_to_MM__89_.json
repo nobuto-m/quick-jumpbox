@@ -52,7 +52,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1560,
+        1740,
         280
       ]
     },
@@ -74,7 +74,8 @@
       "position": [
         1040,
         200
-      ]
+      ],
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -222,7 +223,8 @@
       "position": [
         1040,
         400
-      ]
+      ],
+      "alwaysOutputData": true
     },
     {
       "parameters": {},
@@ -280,7 +282,8 @@
       "position": [
         1240,
         200
-      ]
+      ],
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -331,6 +334,27 @@
       "position": [
         1240,
         400
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json[\"link\"] }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "676d2839-8d28-4701-b398-c9481bd9a130",
+      "name": "Filter3",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        280
       ]
     }
   ],
@@ -512,7 +536,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Filter3",
             "type": "main",
             "index": 0
           }
@@ -540,6 +564,17 @@
           }
         ]
       ]
+    },
+    "Filter3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": true,
@@ -548,7 +583,7 @@
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "0ad90dd6-088e-4d82-a159-e30de6acc595",
+  "versionId": "88ee8fbd-b4d8-447a-bc7e-d7a7ed91448b",
   "id": "XHqy8qPd9g5xPFCm",
   "meta": {
     "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
