@@ -1,5 +1,5 @@
 {
-  "name": "Linux news to MM [89]",
+  "name": "Linux news to MM",
   "nodes": [
     {
       "parameters": {
@@ -12,13 +12,13 @@
           ]
         }
       },
-      "id": "f902a3df-0b61-4e43-88f9-d7aaf69b1284",
+      "id": "cadb08c9-8c47-4af4-b24b-e08b8fbcad95",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
       "position": [
-        180,
-        280
+        -340,
+        740
       ]
     },
     {
@@ -47,13 +47,13 @@
           }
         }
       },
-      "id": "1be20bcc-b05f-4073-9c3e-5ebf48e11ed0",
+      "id": "b308d02a-f6e4-4599-9fc5-014eb202ba99",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1740,
-        280
+        1220,
+        740
       ]
     },
     {
@@ -67,13 +67,13 @@
           ]
         }
       },
-      "id": "6b2001be-f3c7-47b2-b79d-a6e44a9ceece",
+      "id": "52b680a4-9273-4120-b3a4-d2115c668711",
       "name": "Filter",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
       "position": [
-        1040,
-        200
+        520,
+        660
       ],
       "alwaysOutputData": true
     },
@@ -82,100 +82,100 @@
         "batchSize": 1,
         "options": {}
       },
-      "id": "7064ed9f-c0c0-49e6-b23c-8bc360139620",
+      "id": "27947f3f-5755-477c-8d00-729120a47469",
       "name": "Split In Batches",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        820,
-        180
+        300,
+        640
       ]
     },
     {
       "parameters": {
         "url": "={{ $json.url }}"
       },
-      "id": "089d3ca7-c07c-4f8c-b7c0-8387edc0b60a",
+      "id": "e3b777f4-4286-4310-917f-e37d45bfae95",
       "name": "RSS Read",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
       "position": [
-        980,
-        0
+        460,
+        460
       ]
     },
     {
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"https://www.omgubuntu.co.uk/feed\" } },\n];"
       },
-      "id": "52423220-19bc-4345-83dc-d74c1775cdbe",
+      "id": "02597034-4244-4dde-8018-d355bbb43a89",
       "name": "Ubuntu news",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        480,
-        80
+        -40,
+        540
       ]
     },
     {
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"https://www.omglinux.com/feed\" } },\n  { json: { url: \"https://www.linux.com/feed/\" } },\n  { json: { url: \"https://www.phoronix.com/rss.php\" } },\n];"
       },
-      "id": "5b3bc7c9-7cfe-446c-a909-acf844f74f00",
+      "id": "69b296e8-d8c0-4daf-9d0a-5d16dcc0ff0d",
       "name": "Linux news",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        480,
-        220
+        -40,
+        680
       ]
     },
     {
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://thenewstack.io/feed/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },\n  { json: { url: \"https://www.infoworld.com/index.rss\" } },\n  { json: { url: \"https://feeds.bbci.co.uk/news/rss.xml\" } },\n];"
       },
-      "id": "3ceda858-259c-4faa-b145-607e38fc331f",
+      "id": "253fc3c5-1cdd-4fc7-a487-32ada8c2408b",
       "name": "News - en",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        480,
-        360
+        -40,
+        820
       ]
     },
     {
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"http://feeds.japan.zdnet.com/rss/zdnet/all.rdf\" } },\n  { json: { url: \"http://feeds.japan.cnet.com/rss/cnet/all.rdf\" } },\n  { json: { url: \"https://cloud.watch.impress.co.jp/data/rss/1.0/clw/feed.rdf\" } },\n  { json: { url: \"https://news.yahoo.co.jp/rss/topics/it.xml\" } },\n  { json: { url: \"https://www.techno-edge.net/rss20/index.rdf\" } },\n  { json: { url: \"https://rss.itmedia.co.jp/rss/2.0/news_bursts.xml\" } },\n  { json: { url: \"https://weekly.ascii.jp/rss.xml\" } },\n  { json: { url: \"https://gihyo.jp/feed/rss2\" } },\n  { json: { url: \"https://thinkit.co.jp/rss.xml\" } },\n  { json: { url: \"https://codezine.jp/rss/new/20/index.xml\" } },\n  { json: { url: \"https://www.publickey1.jp/atom.xml\" } },\n];"
       },
-      "id": "dc6d875b-82f8-4344-86f8-8f1236ad027e",
+      "id": "679699ed-c304-4f4f-8b1b-38f2f54ec36e",
       "name": "News - ja",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        480,
-        500
+        -40,
+        960
       ]
     },
     {
       "parameters": {},
-      "id": "d4c4602a-7353-4dc6-8ac2-c86843aac226",
+      "id": "5a36ae93-b2fa-49cf-8cef-fab22d79bec2",
       "name": "Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        660,
-        200
+        140,
+        660
       ]
     },
     {
       "parameters": {},
-      "id": "b9f50cb1-9e02-4f96-afee-c44b7100b235",
+      "id": "48fc9db6-effd-4936-8949-90d6ceb943c1",
       "name": "Merge1",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        660,
-        380
+        140,
+        840
       ]
     },
     {
@@ -183,26 +183,26 @@
         "batchSize": 1,
         "options": {}
       },
-      "id": "b33a1368-18cd-498a-b2e2-b2379f110275",
+      "id": "9b8c01d3-0883-43bf-9951-ef9c2b7a0067",
       "name": "Split In Batches1",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        820,
-        380
+        300,
+        840
       ]
     },
     {
       "parameters": {
         "url": "={{ $json.url }}"
       },
-      "id": "4818f247-2111-4709-a288-16899eb8423a",
+      "id": "bc023891-4602-4cb9-9919-dac2fa5bd335",
       "name": "RSS Read1",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
       "position": [
-        980,
-        560
+        460,
+        1020
       ]
     },
     {
@@ -216,25 +216,25 @@
           ]
         }
       },
-      "id": "c33206f3-b985-4df7-8b58-405fc9a3698f",
+      "id": "9d001786-b49e-435c-a9ab-a8bf05f74386",
       "name": "Filter1",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
       "position": [
-        1040,
-        400
+        520,
+        860
       ],
       "alwaysOutputData": true
     },
     {
       "parameters": {},
-      "id": "c388e9de-b84f-4bea-a7eb-1ed2c9e2b057",
+      "id": "d7ac94e0-219a-49a4-84e9-2e67e6101e67",
       "name": "Merge2",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1400,
-        280
+        880,
+        740
       ]
     },
     {
@@ -270,18 +270,23 @@
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
               "value2": "/vulnerability|vulnerabilities|脆弱性|CVE/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/acquisition|acquire|IPO|買収/i"
             }
           ]
         },
         "combineConditions": "OR"
       },
-      "id": "2b2a645b-f2be-486d-801d-d300348e2ca0",
+      "id": "ad50c6bf-5283-46e3-bf49-5466debb9fae",
       "name": "Filter2",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
       "position": [
-        1240,
-        200
+        720,
+        660
       ],
       "alwaysOutputData": true
     },
@@ -322,18 +327,23 @@
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
               "value2": "/vulnerability|vulnerabilities|脆弱性|CVE/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/acquisition|acquire|IPO|買収/i"
             }
           ]
         },
         "combineConditions": "OR"
       },
-      "id": "6bcb99fc-2b33-4abb-9907-e5df712fe186",
+      "id": "f77f40ce-96e2-4a9f-9b6e-69543e0da864",
       "name": "Filter incl. Linux",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
       "position": [
-        1240,
-        400
+        720,
+        860
       ],
       "alwaysOutputData": true
     },
@@ -348,13 +358,13 @@
           ]
         }
       },
-      "id": "676d2839-8d28-4701-b398-c9481bd9a130",
+      "id": "008a34a0-705c-40b0-aeca-0e7125525455",
       "name": "Filter3",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
       "position": [
-        1580,
-        280
+        1060,
+        740
       ]
     }
   ],
@@ -579,14 +589,12 @@
   },
   "active": true,
   "settings": {
-    "timezone": "Etc/GMT",
-    "saveManualExecutions": false,
-    "callerPolicy": "workflowsFromSameOwner"
+    "executionOrder": "v1"
   },
-  "versionId": "88ee8fbd-b4d8-447a-bc7e-d7a7ed91448b",
-  "id": "XHqy8qPd9g5xPFCm",
+  "versionId": "6c58b085-1dcf-4aff-a598-11d2d7a4c13d",
+  "id": "ybRrRCg74xkCux4h",
   "meta": {
-    "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
+    "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
   },
   "tags": []
 }
