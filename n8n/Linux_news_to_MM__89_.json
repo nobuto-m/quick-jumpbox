@@ -254,7 +254,7 @@
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/Red Hat|RHEL|IBM|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
+              "value2": "/Red Hat|RHEL|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
             },
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
@@ -269,12 +269,17 @@
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/vulnerability|vulnerabilities|脆弱性|CVE/i"
+              "value2": "/CVE/"
             },
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/acquisition|acquire|IPO|買収/i"
+              "value2": "/acquisition|acquire|買収/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/IPO/"
             }
           ]
         },
@@ -311,7 +316,7 @@
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/Red Hat|RHEL|IBM|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
+              "value2": "/Red Hat|RHEL|OpenShift|CentOS|Rocky Linux|AlmaLinux/i"
             },
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
@@ -326,12 +331,17 @@
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/vulnerability|vulnerabilities|脆弱性|CVE/i"
+              "value2": "/CVE/"
             },
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/acquisition|acquire|IPO|買収/i"
+              "value2": "/acquisition|acquire|買収/i"
+            },
+            {
+              "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
+              "operation": "regex",
+              "value2": "/IPO/"
             }
           ]
         },
@@ -591,7 +601,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "6c58b085-1dcf-4aff-a598-11d2d7a4c13d",
+  "versionId": "630f1036-0af0-492a-a8b4-769e85eb5847",
   "id": "ybRrRCg74xkCux4h",
   "meta": {
     "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
