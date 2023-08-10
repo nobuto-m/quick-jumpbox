@@ -269,7 +269,7 @@
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/CVE/"
+              "value2": "/CVE|microcode/i"
             },
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
@@ -331,7 +331,7 @@
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
               "operation": "regex",
-              "value2": "/CVE/"
+              "value2": "/CVE|microcode/i"
             },
             {
               "value1": "={{ $json.title }} {{ $json.contentSnippet }}",
@@ -601,7 +601,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "630f1036-0af0-492a-a8b4-769e85eb5847",
+  "versionId": "d9bf11d7-bd6f-4b16-92f3-a712e3d10fe0",
   "id": "ybRrRCg74xkCux4h",
   "meta": {
     "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
