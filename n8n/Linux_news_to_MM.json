@@ -12,7 +12,7 @@
           ]
         }
       },
-      "id": "cadb08c9-8c47-4af4-b24b-e08b8fbcad95",
+      "id": "993b65fe-e64f-4550-aae4-a600aa4f55c0",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
@@ -47,7 +47,7 @@
           }
         }
       },
-      "id": "b308d02a-f6e4-4599-9fc5-014eb202ba99",
+      "id": "fff7cc40-23f8-432b-866f-310aab2eee63",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
@@ -67,7 +67,7 @@
           ]
         }
       },
-      "id": "52b680a4-9273-4120-b3a4-d2115c668711",
+      "id": "3c603060-dadc-4f3f-90d1-9c5b1a3f4318",
       "name": "Filter",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
@@ -82,7 +82,7 @@
         "batchSize": 1,
         "options": {}
       },
-      "id": "27947f3f-5755-477c-8d00-729120a47469",
+      "id": "567c2503-25f6-4f9a-bf9d-376329ad2134",
       "name": "Split In Batches",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
@@ -95,7 +95,7 @@
       "parameters": {
         "url": "={{ $json.url }}"
       },
-      "id": "e3b777f4-4286-4310-917f-e37d45bfae95",
+      "id": "7e7b6ee4-ad40-4b4c-9674-d8f6a36217ee",
       "name": "RSS Read",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
@@ -108,7 +108,7 @@
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"https://www.omgubuntu.co.uk/feed\" } },\n];"
       },
-      "id": "02597034-4244-4dde-8018-d355bbb43a89",
+      "id": "080e5392-b7b1-4332-9332-7c8d4bda07cc",
       "name": "Ubuntu news",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
@@ -121,7 +121,7 @@
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"https://www.omglinux.com/feed\" } },\n  { json: { url: \"https://www.linux.com/feed/\" } },\n  { json: { url: \"https://www.phoronix.com/rss.php\" } },\n];"
       },
-      "id": "69b296e8-d8c0-4daf-9d0a-5d16dcc0ff0d",
+      "id": "506fba3b-6b74-42e0-ad68-1d9454fa3d09",
       "name": "Linux news",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
@@ -134,7 +134,7 @@
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://thenewstack.io/feed/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },\n  { json: { url: \"https://www.infoworld.com/index.rss\" } },\n  { json: { url: \"https://feeds.bbci.co.uk/news/rss.xml\" } },\n];"
       },
-      "id": "253fc3c5-1cdd-4fc7-a487-32ada8c2408b",
+      "id": "8a605b1f-f39b-4e91-9a98-0e12cf1db9da",
       "name": "News - en",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
@@ -147,7 +147,7 @@
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"http://feeds.japan.zdnet.com/rss/zdnet/all.rdf\" } },\n  { json: { url: \"http://feeds.japan.cnet.com/rss/cnet/all.rdf\" } },\n  { json: { url: \"https://cloud.watch.impress.co.jp/data/rss/1.0/clw/feed.rdf\" } },\n  { json: { url: \"https://news.yahoo.co.jp/rss/topics/it.xml\" } },\n  { json: { url: \"https://www.techno-edge.net/rss20/index.rdf\" } },\n  { json: { url: \"https://rss.itmedia.co.jp/rss/2.0/news_bursts.xml\" } },\n  { json: { url: \"https://weekly.ascii.jp/rss.xml\" } },\n  { json: { url: \"https://gihyo.jp/feed/rss2\" } },\n  { json: { url: \"https://thinkit.co.jp/rss.xml\" } },\n  { json: { url: \"https://codezine.jp/rss/new/20/index.xml\" } },\n  { json: { url: \"https://www.publickey1.jp/atom.xml\" } },\n];"
       },
-      "id": "679699ed-c304-4f4f-8b1b-38f2f54ec36e",
+      "id": "276fa142-6a10-4558-9b5c-d7c807469e0c",
       "name": "News - ja",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
@@ -158,7 +158,7 @@
     },
     {
       "parameters": {},
-      "id": "5a36ae93-b2fa-49cf-8cef-fab22d79bec2",
+      "id": "594dcbc6-f5f3-46a4-b064-d4ff0936f015",
       "name": "Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
@@ -169,7 +169,7 @@
     },
     {
       "parameters": {},
-      "id": "48fc9db6-effd-4936-8949-90d6ceb943c1",
+      "id": "4b354531-e615-4d9d-8cca-f45968bfa30b",
       "name": "Merge1",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
@@ -183,7 +183,7 @@
         "batchSize": 1,
         "options": {}
       },
-      "id": "9b8c01d3-0883-43bf-9951-ef9c2b7a0067",
+      "id": "cc487b53-a2ea-40ae-909f-b426d697c452",
       "name": "Split In Batches1",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
@@ -196,7 +196,7 @@
       "parameters": {
         "url": "={{ $json.url }}"
       },
-      "id": "bc023891-4602-4cb9-9919-dac2fa5bd335",
+      "id": "90f242d8-1706-480d-8f10-b3112029d374",
       "name": "RSS Read1",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
@@ -216,7 +216,7 @@
           ]
         }
       },
-      "id": "9d001786-b49e-435c-a9ab-a8bf05f74386",
+      "id": "2d27e5e9-27e3-46f6-9d00-2e8b22792c31",
       "name": "Filter1",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
@@ -228,7 +228,7 @@
     },
     {
       "parameters": {},
-      "id": "d7ac94e0-219a-49a4-84e9-2e67e6101e67",
+      "id": "79c8808c-9531-4b01-83f6-062b033804b8",
       "name": "Merge2",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
@@ -285,7 +285,7 @@
         },
         "combineConditions": "OR"
       },
-      "id": "ad50c6bf-5283-46e3-bf49-5466debb9fae",
+      "id": "5958d5dd-2e6a-4472-a56a-7dd06afbd671",
       "name": "Filter2",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
@@ -347,7 +347,7 @@
         },
         "combineConditions": "OR"
       },
-      "id": "f77f40ce-96e2-4a9f-9b6e-69543e0da864",
+      "id": "090f34df-b0cd-4f7a-9661-60369ba37bb4",
       "name": "Filter incl. Linux",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
@@ -368,7 +368,7 @@
           ]
         }
       },
-      "id": "008a34a0-705c-40b0-aeca-0e7125525455",
+      "id": "e6137be0-7db0-4b19-ae82-e301c7844907",
       "name": "Filter3",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
@@ -599,10 +599,13 @@
   },
   "active": true,
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "Etc/GMT",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1
   },
-  "versionId": "91367250-d36d-4944-8462-b8210ae143e0",
-  "id": "ybRrRCg74xkCux4h",
+  "versionId": "5b976502-4b54-46ae-a9ba-3e64d864851c",
+  "id": "tASvAIOYqAC9BPDj",
   "meta": {
     "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
   },
