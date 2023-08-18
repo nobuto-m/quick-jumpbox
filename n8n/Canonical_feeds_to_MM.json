@@ -1,5 +1,5 @@
 {
-  "name": "Canonical feeds to MM [53]",
+  "name": "Canonical feeds to MM",
   "nodes": [
     {
       "parameters": {
@@ -12,13 +12,13 @@
           ]
         }
       },
-      "id": "d6fd8711-a8b5-4739-9d2d-9bd3419a0e6c",
+      "id": "c456b04c-2982-456b-b4b6-5029a3007784",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
       "position": [
-        180,
-        280
+        -120,
+        740
       ]
     },
     {
@@ -47,13 +47,13 @@
           }
         }
       },
-      "id": "b3ab433c-ddfa-4240-be80-96138f966466",
+      "id": "bdcd8be2-4c01-4d4e-837d-58c2ad6853aa",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        960,
-        380
+        660,
+        840
       ]
     },
     {
@@ -67,13 +67,13 @@
           ]
         }
       },
-      "id": "0e5bbdea-2407-4679-a1c3-b478d0aa5efa",
+      "id": "056d8471-7df7-4945-9e8f-44d7ec804ec1",
       "name": "Filter",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
       "position": [
-        780,
-        380
+        480,
+        840
       ]
     },
     {
@@ -81,39 +81,39 @@
         "batchSize": 1,
         "options": {}
       },
-      "id": "c61cc2ca-fa28-478e-9664-8389db52fb3a",
+      "id": "1e40f5b6-f245-47ef-a767-dc46d808afab",
       "name": "Split In Batches",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        600,
-        180
+        300,
+        640
       ]
     },
     {
       "parameters": {
         "jsCode": "return [\n  { json: { url: \"https://canonical.com/blog/feed\" } },\n  { json: { url: \"https://ubuntu.com/blog/feed\" } },\n  { json: { url: \"https://jp.ubuntu.com/blog/feed\" } },\n];"
       },
-      "id": "15a5407c-b089-4d66-b907-e4cb6af7c83e",
+      "id": "a954f249-c5cc-45e5-8da8-c0891eb05918",
       "name": "Feeds",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        380,
-        280
+        80,
+        740
       ]
     },
     {
       "parameters": {
         "url": "={{ $json.url }}"
       },
-      "id": "419b8d4f-cb43-4f13-81dd-d5d3dc92294a",
+      "id": "1cc71b96-7556-4c9f-a7e0-c9841c51c7f6",
       "name": "RSS Read",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
       "position": [
-        760,
-        0
+        460,
+        460
       ]
     }
   ],
@@ -184,14 +184,15 @@
   },
   "active": true,
   "settings": {
+    "executionOrder": "v1",
     "timezone": "Etc/GMT",
-    "saveManualExecutions": false,
-    "callerPolicy": "workflowsFromSameOwner"
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1
   },
-  "versionId": "4f488687-660f-419f-8615-31e61445b930",
-  "id": "nwM4um6JChHhUuMI",
+  "versionId": "07436dfa-c785-4524-82db-0726412c9890",
+  "id": "0UtPazPjbGJqq1zz",
   "meta": {
-    "instanceId": "4f1e40c0c36cfbf1baf61978f97165ef394bd2b2c56ae5b5321e2e9ddecd27ec"
+    "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
   },
   "tags": []
 }
