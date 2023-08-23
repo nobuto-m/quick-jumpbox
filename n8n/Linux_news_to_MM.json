@@ -7,7 +7,7 @@
           "interval": [
             {
               "field": "minutes",
-              "minutesInterval": 89
+              "minutesInterval": 359
             }
           ]
         }
@@ -604,7 +604,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": -1
   },
-  "versionId": "36a4d37c-a38e-49c8-95d2-ab7728b8544e",
+  "versionId": "dc41fb03-9bf9-4228-ac0d-d6d1a9503cb9",
   "id": "tASvAIOYqAC9BPDj",
   "meta": {
     "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
