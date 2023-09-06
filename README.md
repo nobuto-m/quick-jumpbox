@@ -121,6 +121,28 @@ kubectl apply -f n8n-kubernetes-hosting/namespace.yaml
 kubectl apply -f n8n-kubernetes-hosting/
 ```
 
+#### Temporary steps without microk8s
+
+1. [Install globally with npm](https://docs.n8n.io/hosting/installation/npm/#install-globally-with-npm)
+1. `loginctl user-status ubuntu`
+1. `systemctl edit --user --force --full n8n.service` && `systemctl --user enable --now n8n.service`
+
+```
+$ systemctl --user cat n8n.service
+# /home/ubuntu/.config/systemd/user/n8n.service
+[Unit]
+Description=n8n
+
+[Service]
+Restart=on-failure
+Environment=GENERIC_TIMEZONE=Etc/GMT
+Environment=EXECUTIONS_DATA_MAX_AGE=168
+ExecStart=/usr/local/bin/n8n start
+
+[Install]
+WantedBy=default.target
+```
+
 ## References
 
 - https://www.servethehome.com/keeping-servers-bios-setup-availability/
