@@ -102,7 +102,8 @@
       "position": [
         460,
         460
-      ]
+      ],
+      "continueOnFail": true
     },
     {
       "parameters": {
@@ -119,7 +120,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  { json: { url: \"https://www.omglinux.com/feed\" } },\n  { json: { url: \"https://www.linux.com/feed/\" } },\n  { json: { url: \"https://www.phoronix.com/rss.php\" } },\n];"
+        "jsCode": "return [\n  { json: { url: \"https://www.omglinux.com/feed\" } },\n  // https://forum.linuxfoundation.org/discussion/864526/linux-com-rss-feed\n  //{ json: { url: \"https://www.linux.com/feed/\" } },\n  { json: { url: \"https://www.phoronix.com/rss.php\" } },\n];"
       },
       "id": "506fba3b-6b74-42e0-ad68-1d9454fa3d09",
       "name": "Linux news",
@@ -132,7 +133,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },\n  { json: { url: \"https://www.infoworld.com/index.rss\" } },\n  { json: { url: \"https://feeds.bbci.co.uk/news/rss.xml\" } },\n  { json: { url: \"https://www.reutersagency.com/feed/\" } },\n];"
+        "jsCode": "return [\n  { json: { url: \"https://www.theregister.com/headlines.atom\" } },\n  { json: { url: \"https://feeds.feedburner.com/DataCenterKnowledge\" } },\n  { json: { url: \"https://feeds.arstechnica.com/arstechnica/index\" } },\n  { json: { url: \"https://www.zdnet.com/news/rss.xml\" } },\n  { json: { url: \"https://www.cnet.com/rss/news/\" } },\n  { json: { url: \"https://www.theverge.com/rss/index.xml\" } },\n  { json: { url: \"https://www.infoworld.com/feed/\" } },\n  { json: { url: \"https://feeds.bbci.co.uk/news/rss.xml\" } },\n  { json: { url: \"https://www.reutersagency.com/feed/\" } },\n];"
       },
       "id": "8a605b1f-f39b-4e91-9a98-0e12cf1db9da",
       "name": "News - en",
@@ -203,7 +204,8 @@
       "position": [
         460,
         1020
-      ]
+      ],
+      "continueOnFail": true
     },
     {
       "parameters": {
@@ -601,10 +603,9 @@
   "settings": {
     "executionOrder": "v1",
     "timezone": "Etc/GMT",
-    "callerPolicy": "workflowsFromSameOwner",
-    "executionTimeout": -1
+    "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "dc41fb03-9bf9-4228-ac0d-d6d1a9503cb9",
+  "versionId": "6dcfb840-6fd9-43dc-9290-fe633c7c1f04",
   "id": "tASvAIOYqAC9BPDj",
   "meta": {
     "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"

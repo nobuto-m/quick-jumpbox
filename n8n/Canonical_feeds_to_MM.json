@@ -114,7 +114,8 @@
       "position": [
         460,
         460
-      ]
+      ],
+      "continueOnFail": true
     }
   ],
   "pinData": {},
@@ -186,10 +187,9 @@
   "settings": {
     "executionOrder": "v1",
     "timezone": "Etc/GMT",
-    "callerPolicy": "workflowsFromSameOwner",
-    "executionTimeout": -1
+    "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "07436dfa-c785-4524-82db-0726412c9890",
+  "versionId": "873bfb56-bb40-4730-89ce-19cbeaf1294f",
   "id": "0UtPazPjbGJqq1zz",
   "meta": {
     "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
