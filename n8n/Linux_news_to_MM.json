@@ -30,7 +30,7 @@
           "parameters": [
             {
               "name": "text",
-              "value": "={{ $json[\"link\"] }}\n**{{ $json[\"title\"] }}**\n> {{ $json.contentSnippet }}"
+              "value": "={{ $json[\"link\"] }}\n**{{ $json[\"title\"] }}**\n> {{ $json.contentSnippet.slice(0, 2000) }}"
             },
             {
               "name": "username",
@@ -605,7 +605,7 @@
     "timezone": "Etc/GMT",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "6dcfb840-6fd9-43dc-9290-fe633c7c1f04",
+  "versionId": "927ef76d-ba20-4ea8-aaec-32360f971753",
   "id": "tASvAIOYqAC9BPDj",
   "meta": {
     "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
