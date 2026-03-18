@@ -30,7 +30,7 @@
           "parameters": [
             {
               "name": "text",
-              "value": "={{ $json[\"link\"] }}\n**{{ $json[\"title\"] }}**\n> {{ $json.contentSnippet.slice(0, 250) }}"
+              "value": "={{ $json[\"link\"] }}\n**{{ $json[\"title\"] }}**\n> {{ $json.contentSnippet.slice(0, 500) }}"
             },
             {
               "name": "username",
