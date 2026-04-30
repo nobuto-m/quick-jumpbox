@@ -120,7 +120,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  { json: { url: \"https://www.omglinux.com/feed\" } },\n  // https://forum.linuxfoundation.org/discussion/864526/linux-com-rss-feed\n  //{ json: { url: \"https://www.linux.com/feed/\" } },\n  { json: { url: \"https://www.phoronix.com/rss.php\" } },\n];"
+        "jsCode": "return [\n  { json: { url: \"https://www.omglinux.com/feed\" } },\n  // https://forum.linuxfoundation.org/discussion/864526/linux-com-rss-feed\n  { json: { url: \"https://www.linux.com/feed/\" } },\n  { json: { url: \"https://www.phoronix.com/rss.php\" } },\n  { json: { url: \"https://blog.nightly.mozilla.org/feed\" } },\n  { json: { url: \"https://computingforgeeks.com/feed/\" } },\n];"
       },
       "id": "506fba3b-6b74-42e0-ad68-1d9454fa3d09",
       "name": "Linux news",
@@ -605,7 +605,7 @@
     "timezone": "Etc/GMT",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "927ef76d-ba20-4ea8-aaec-32360f971753",
+  "versionId": "6236f122-4cec-4cef-96a6-3b1f81809b4a",
   "id": "tASvAIOYqAC9BPDj",
   "meta": {
     "instanceId": "87d566f088603699f1bb4bd90ec9543ff77f429e8eddd7098e5ddfadfa027a95"
